@@ -7,10 +7,11 @@ function events:UNIT_AURA(...)
             activated = true
             r = e - GetTime()
             q = {"이제 난 완전히 졌다!",
+                 "이제 난 완전해졌다!",
                  "만 년 동안 응어리진 증오를 보여주마!",
                  "너흰 아직 준비가 안 됐다!",
                  "이제 너희는 준비가 돼-따!"}
-            i = random(4)
+            i = random(5)
             SendChatMessage(q[i])
         end
     else
