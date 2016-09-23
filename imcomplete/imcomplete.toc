@@ -1,0 +1,6 @@
+## Interface: 70000
+## Author: gsongsong
+## Title: 이제 난 완전히 졌다!
+## Notes: 이제 난 완전히 졌다!
+## Version : 100000
+imcomplete.lua
