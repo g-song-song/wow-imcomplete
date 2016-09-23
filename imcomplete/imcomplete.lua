@@ -27,7 +27,8 @@ function events:UNIT_AURA(...)
     if found then
         if activated == false then
             activated = true
-            SendChatMessage(q[random(l)], "SAY")
+            i = random(l)
+            SendChatMessage(q[i], "SAY")
         end
     else
         activated = false
