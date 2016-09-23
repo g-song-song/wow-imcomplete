@@ -1,8 +1,18 @@
 local frame, events = CreateFrame("Frame"), {};
 activated = false
 function events:UNIT_AURA(...)
-    name, _, _, _, _, d, e = UnitAura("player", "탈태")
-    if name then
+    found = false
+    for i = 1, 40 do
+        name, _, _, _, _, d, e, _, _, _, spellid = UnitAura("player", i)
+        -- dps: 162264
+        -- tank: 187827
+        if spellid == 162264 or spellid == 187827 then
+            found = true
+            break
+        end
+    end
+
+    if found then
         if activated == false then
             activated = true
             r = e - GetTime()
