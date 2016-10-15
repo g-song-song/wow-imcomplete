@@ -1,8 +1,8 @@
 ## Interface: 70000
 ## Author: gsongsong
-## Title-koKR: 이제 난 완전히 졌다!
-## Notes-koKR: 이제 난 완전히 졌다!
 ## Title: Now, I am complete!
 ## Notes: Now, I am complete!
+## Title-koKR: 이제 난 완전히 졌다!
+## Notes-koKR: 이제 난 완전히 졌다!
 ## Version : 100000
 imcomplete.lua
