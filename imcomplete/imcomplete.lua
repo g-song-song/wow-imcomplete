@@ -13,7 +13,8 @@ if GetLocale() == "koKR" then
       "아지노스의 칼날 맛을 봐라!",
       "아지노스의 화염으로 불살라주마!",
       -- 일리다리
-      "난 모든 것을 희생했다!"
+      "난 모든 것을 희생했다!",
+      "필멸자여, 따라와라 심연 속으로!"
     }
 else
     q = {
@@ -28,7 +29,8 @@ else
       "Taste the blade of Azzinoth!",
       "Burn with the flames of Azzinoth!",
       -- Illidari
-      "I've sacrified everythiing!"
+      "I've sacrified everythiing!",
+      "Now mortals, follow me into the Abyss!"
     }
 end
 l = table.getn(q)
