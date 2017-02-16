@@ -4,15 +4,15 @@ i = 1
 if GetLocale() == "koKR" then
     -- 히어로즈 오브 더 스톰
     q[i] = {"이제 난 완전히 졌다!", nil}; i = i + 1
-    q[i] = {"이제 난 완전해졌다!", nil}; i = i + 1
-    q[i] = {"만 년 동안 응어리진 증오를 보여주마!", nil}; i = i + 1
-    q[i] = {"너흰 아직 준비가 안 됐다!", nil}; i = i + 1
+    q[i] = {"이제 난 완전해졌다!", "now-i-am-complete.ogg"}; i = i + 1
+    q[i] = {"만 년 동안 응어리진 증오를 보여주마!", "feel-the-hatred-of-ten-thousand-years.ogg"}; i = i + 1
+    q[i] = {"너흰 아직 준비가 안 됐다!", "you-are-not-prepared.ogg"}; i = i + 1
     q[i] = {"이제 너희는 준비가 돼-따!", nil}; i = i + 1
-    q[i] = {"나의 증오는 끝이 없다!", nil}; i = i + 1
-    q[i] = {"복수는 나의 것이다!", nil}; i = i + 1
-    q[i] = {"나에겐 오직 증오뿐!", nil}; i = i + 1
-    q[i] = {"아지노스의 칼날 맛을 봐라!", nil}; i = i + 1
-    q[i] = {"아지노스의 화염으로 불살라주마!", nil}; i = i + 1
+    q[i] = {"나의 증오는 끝이 없다!", "my-hatred-is-unending.ogg"}; i = i + 1
+    q[i] = {"복수는 나의 것이다!", "vengence-is-mine.ogg"}; i = i + 1
+    q[i] = {"나에겐 오직 증오뿐!", "i-feel-only-hatred.ogg"}; i = i + 1
+    q[i] = {"아지노스의 칼날 맛을 봐라!", "taste-the-blade-of-azzinoth.ogg"}; i = i + 1
+    q[i] = {"아지노스의 화염으로 불살라주마!", "burn-with-the-flames-of-azzinoth.ogg"}; i = i + 1
     -- 일리다리
     q[i] = {"난 모든 것을 희생했다!", nil}; i = i + 1
     -- 살아단님이 일리계신다!!!
@@ -25,7 +25,7 @@ else
     q[i] = {"Now, you are prepared!", nil}; i = i + 1
     q[i] = {"My hatred is unending!", nil}; i = i + 1
     q[i] = {"Vengeance is mine!", nil}; i = i + 1
-    q[i] = {"I feed only hatred!", nil}; i = i + 1
+    q[i] = {"I feel only hatred!", nil}; i = i + 1
     q[i] = {"Taste the blade of Azzinoth!", nil}; i = i + 1
     q[i] = {"Burn with the flames of Azzinoth!", nil}; i = i + 1
     -- Illidari
@@ -55,7 +55,7 @@ function events:UNIT_AURA(...)
             SendChatMessage(q[i][1], "SAY")
             voice = q[i][2]
             if voice then
-              PlaySoundFile("Interface\\Addons\\imcomplete\\voice\\" .. voice)
+              PlaySoundFile("Interface\\Addons\\imcomplete\\voice\\" .. GetLocal() .. "\\" .. voice)
             end
         end
     else
