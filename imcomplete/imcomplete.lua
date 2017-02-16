@@ -9,7 +9,7 @@ if GetLocale() == "koKR" then
     q[i] = {"너흰 아직 준비가 안 됐다!", "you-are-not-prepared.ogg"}; i = i + 1
     q[i] = {"이제 너희는 준비가 돼-따!", nil}; i = i + 1
     q[i] = {"나의 증오는 끝이 없다!", "my-hatred-is-unending.ogg"}; i = i + 1
-    q[i] = {"복수는 나의 것이다!", "vengence-is-mine.ogg"}; i = i + 1
+    q[i] = {"복수는 나의 것이다!", "vengeance-is-mine.ogg"}; i = i + 1
     q[i] = {"나에겐 오직 증오뿐!", "i-feel-only-hatred.ogg"}; i = i + 1
     q[i] = {"아지노스의 칼날 맛을 봐라!", "taste-the-blade-of-azzinoth.ogg"}; i = i + 1
     q[i] = {"아지노스의 화염으로 불살라주마!", "burn-with-the-flames-of-azzinoth.ogg"}; i = i + 1
