@@ -55,7 +55,7 @@ function events:UNIT_AURA(...)
             SendChatMessage(q[i][1], "SAY")
             voice = q[i][2]
             if voice then
-              PlaySoundFile("Interface\\Addons\\imcomplete\\voice\\" .. GetLocal() .. "\\" .. voice)
+              PlaySoundFile("Interface\\Addons\\imcomplete\\voice\\" .. GetLocale() .. "\\" .. voice)
             end
         end
     else
