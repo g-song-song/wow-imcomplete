@@ -5,4 +5,7 @@
 ## Title-koKR: 이제 난 완전히 졌다!
 ## Notes-koKR: 이제 난 완전히 졌다!
 ## Version : 10004
+localization.core.lua
+localization.en.lua
+localization.ko.lua
 imcomplete.lua

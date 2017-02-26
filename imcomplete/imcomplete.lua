@@ -1,38 +1,22 @@
+local _, L = ...;
 local frame, events = CreateFrame("Frame"), {};
 q ={}
 i = 1
-if GetLocale() == "koKR" then
-    -- 히어로즈 오브 더 스톰
-    q[i] = {"이제 난 완전히 졌다!", nil}; i = i + 1
-    q[i] = {"이제 난 완전해졌다!", "now-i-am-complete.ogg"}; i = i + 1
-    q[i] = {"만 년 동안 응어리진 증오를 보여주마!", "feel-the-hatred-of-ten-thousand-years.ogg"}; i = i + 1
-    q[i] = {"너흰 아직 준비가 안 됐다!", "you-are-not-prepared.ogg"}; i = i + 1
-    q[i] = {"이제 너희는 준비가 돼-따!", nil}; i = i + 1
-    q[i] = {"나의 증오는 끝이 없다!", "my-hatred-is-unending.ogg"}; i = i + 1
-    q[i] = {"복수는 나의 것이다!", "vengeance-is-mine.ogg"}; i = i + 1
-    q[i] = {"나에겐 오직 증오뿐!", "i-feel-only-hatred.ogg"}; i = i + 1
-    q[i] = {"아지노스의 칼날 맛을 봐라!", "taste-the-blade-of-azzinoth.ogg"}; i = i + 1
-    q[i] = {"아지노스의 화염으로 불살라주마!", "burn-with-the-flames-of-azzinoth.ogg"}; i = i + 1
-    -- 일리다리
-    q[i] = {"난 모든 것을 희생했다!", nil}; i = i + 1
-    -- 살아단님이 일리계신다!!!
-    q[i] = {"필멸자여, 따라와라 심연 속으로!", nil}; i = i + 1
-else
-    -- Heroes of the storm
-    q[i] = {"Now, I am complete!", "now-i-am-complete.ogg"}; i = i + 1
-    q[i] = {"Feel the hatred of ten thousand years!", "feel-the-hatred-of-ten-thousand-years.ogg"}; i = i + 1
-    q[i] = {"You are not prepared!", "you-are-not-prepared.ogg"}; i = i + 1
-    q[i] = {"Now, you are prepared!", nil}; i = i + 1
-    q[i] = {"My hatred is unending!", nil}; i = i + 1
-    q[i] = {"Vengeance is mine!", nil}; i = i + 1
-    q[i] = {"I feel only hatred!", nil}; i = i + 1
-    q[i] = {"Taste the blade of Azzinoth!", nil}; i = i + 1
-    q[i] = {"Burn with the flames of Azzinoth!", nil}; i = i + 1
-    -- Illidari
-    q[i] = {"I've sacrified everythiing!", nil}; i = i + 1
-    -- Illidan, the Champion of the Light
-    q[i] = {"Now mortals, follow me into the Abyss!", nil}; i = i + 1
-end
+  -- Heroes of the storm
+q[i] = {L["Now, I am completely defeated!"], nil}; i = i + 1;
+q[i] = {L["Now, I am complete!"], "now-i-am-complete.ogg"}; i = i + 1
+q[i] = {L["Feel the hatred of ten thousand years!"], "feel-the-hatred-of-ten-thousand-years.ogg"}; i = i + 1
+q[i] = {L["You are not prepared!"], "you-are-not-prepared.ogg"}; i = i + 1
+q[i] = {L["Now, you are prepared!"], nil}; i = i + 1
+q[i] = {L["My hatred is unending!"], "my-hatred-is-unending.ogg"}; i = i + 1
+q[i] = {L["Vengeance is mine!"], "vengeance-is-mine.ogg"}; i = i + 1
+q[i] = {L["I feel only hatred!"], "i-feel-only-hatred.ogg"}; i = i + 1
+q[i] = {L["Taste the blade of Azzinoth!"], "taste-the-blade-of-azzinoth.ogg"}; i = i + 1
+q[i] = {L["Burn with the flames of Azzinoth!"], "burn-with-the-flames-of-azzinoth.ogg"}; i = i + 1
+-- Illidari
+q[i] = {L["I've sacrified everythiing!"], nil}; i = i + 1
+-- Illidan, the Champion of the Light
+q[i] = {L["Now mortals, follow me into the Abyss!"], nil}; i = i + 1
 l = table.getn(q)
 activated = false
 function events:UNIT_AURA(...)
@@ -51,12 +35,17 @@ function events:UNIT_AURA(...)
     if found then
         if activated == false then
             activated = true
-            i = random(l)
+            while true do
+              i = random(l)
+              if q[i][1] then
+                break;
+              end
+            end
             SendChatMessage(q[i][1], "SAY")
             voice = q[i][2]
-            if voice then
-              PlaySoundFile("Interface\\Addons\\imcomplete\\voice\\" .. GetLocale() .. "\\" .. voice)
-            end
+            fname = "Interface\\Addons\\imcomplete\\voice\\" .. GetLocale() .. "\\" .. voice;
+            -- pcall suppresses error if file does not exist
+            pcall(PlaySoundFile, fname)
         end
     else
         activated = false
