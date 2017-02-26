@@ -1,26 +1,29 @@
+local function nextIdx(q)
+  return table.getn(q) + 1;
+end
+
 local _, L = ...;
 local frame, events = CreateFrame("Frame"), {};
-q ={}
-i = 1
+local q ={}
   -- Heroes of the storm
-q[i] = {L["Now, I am completely defeated!"], nil}; i = i + 1;
-q[i] = {L["Now, I am complete!"], "now-i-am-complete.ogg"}; i = i + 1
-q[i] = {L["Feel the hatred of ten thousand years!"], "feel-the-hatred-of-ten-thousand-years.ogg"}; i = i + 1
-q[i] = {L["You are not prepared!"], "you-are-not-prepared.ogg"}; i = i + 1
-q[i] = {L["Now, you are prepared!"], nil}; i = i + 1
-q[i] = {L["My hatred is unending!"], "my-hatred-is-unending.ogg"}; i = i + 1
-q[i] = {L["Vengeance is mine!"], "vengeance-is-mine.ogg"}; i = i + 1
-q[i] = {L["I feel only hatred!"], "i-feel-only-hatred.ogg"}; i = i + 1
-q[i] = {L["Taste the blade of Azzinoth!"], "taste-the-blade-of-azzinoth.ogg"}; i = i + 1
-q[i] = {L["Burn with the flames of Azzinoth!"], "burn-with-the-flames-of-azzinoth.ogg"}; i = i + 1
+q[nextIdx(q)] = {L["Now, I am completely defeated!"], nil};
+q[nextIdx(q)] = {L["Now, I am complete!"], "now-i-am-complete.ogg"};
+q[nextIdx(q)] = {L["Feel the hatred of ten thousand years!"], "feel-the-hatred-of-ten-thousand-years.ogg"};
+q[nextIdx(q)] = {L["You are not prepared!"], "you-are-not-prepared.ogg"};
+q[nextIdx(q)] = {L["Now, you are prepared!"], nil};
+q[nextIdx(q)] = {L["My hatred is unending!"], "my-hatred-is-unending.ogg"};
+q[nextIdx(q)] = {L["Vengeance is mine!"], "vengeance-is-mine.ogg"};
+q[nextIdx(q)] = {L["I feel only hatred!"], "i-feel-only-hatred.ogg"};
+q[nextIdx(q)] = {L["Taste the blade of Azzinoth!"], "taste-the-blade-of-azzinoth.ogg"};
+q[nextIdx(q)] = {L["Burn with the flames of Azzinoth!"], "burn-with-the-flames-of-azzinoth.ogg"};
 -- Illidari
-q[i] = {L["I've sacrified everythiing!"], nil}; i = i + 1
+q[nextIdx(q)] = {L["I've sacrified everythiing!"], nil};
 -- Illidan, the Champion of the Light
-q[i] = {L["Now mortals, follow me into the Abyss!"], nil}; i = i + 1
-l = table.getn(q)
-activated = false
+q[nextIdx(q)] = {L["Now mortals, follow me into the Abyss!"], nil};
+local l = table.getn(q)
+local activated = false
 function events:UNIT_AURA(...)
-    found = false
+    local found = false
     for i = 1, 40 do
         _, _, _, _, _, _, _, _, _, _, spellid = UnitAura("player", i)
         -- dps: 162264
@@ -35,6 +38,7 @@ function events:UNIT_AURA(...)
     if found then
         if activated == false then
             activated = true
+            local i = nil;
             while true do
               i = random(l)
               if q[i][1] then
@@ -42,8 +46,7 @@ function events:UNIT_AURA(...)
               end
             end
             SendChatMessage(q[i][1], "SAY")
-            voice = q[i][2]
-            fname = "Interface\\Addons\\imcomplete\\voice\\" .. GetLocale() .. "\\" .. voice;
+            local fname = "Interface\\Addons\\imcomplete\\voice\\" .. GetLocale() .. "\\" .. q[i][2];
             -- pcall suppresses error if file does not exist
             pcall(PlaySoundFile, fname)
         end
