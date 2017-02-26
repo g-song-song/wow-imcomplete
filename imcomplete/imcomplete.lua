@@ -45,10 +45,12 @@ function events:UNIT_AURA(...)
                 break;
               end
             end
-            SendChatMessage(q[i][1], "SAY")
-            local fname = "Interface\\Addons\\imcomplete\\voice\\" .. GetLocale() .. "\\" .. q[i][2];
-            -- pcall suppresses error if file does not exist
-            pcall(PlaySoundFile, fname)
+            SendChatMessage(q[i][1], L.channel)
+            if L.playsound and q[i][2] then
+              local fname = "Interface\\Addons\\imcomplete\\voice\\" .. GetLocale() .. "\\" .. q[i][2];
+              -- pcall suppresses error if file does not exist
+              pcall(PlaySoundFile, fname)
+            end
         end
     else
         activated = false

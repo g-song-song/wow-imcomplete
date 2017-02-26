@@ -8,4 +8,5 @@
 localization.core.lua
 localization.en.lua
 localization.ko.lua
+config.lua
 imcomplete.lua
