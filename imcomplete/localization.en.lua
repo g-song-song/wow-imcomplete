@@ -14,4 +14,11 @@ if GetLocale() == "enUS" then
   L["I've sacrified everythiing!"] = "I've sacrified everythiing!";
   -- Illidan, the Champion of the Light
   L["Now mortals, follow me into the Abyss!"] = "Now mortals, follow me into the Abyss!";
+  
+  L["msg_channel"]  = "Quote channel";
+  L["SAY"] = "say (/s)";
+  L["YELL"]  = "yell (/y)";
+  L["msg_playsound"] = "Play voice";
+  L["true"] = "yes";
+  L["false"] = "no";
 end

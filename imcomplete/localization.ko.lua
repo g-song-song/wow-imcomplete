@@ -15,4 +15,11 @@ if GetLocale() == "koKR" then
   L["I've sacrified everythiing!"] = "난 모든 것을 희생했다!";
   -- Illidan, the Champion of the Light
   L["Now mortals, follow me into the Abyss!"] = "필멸자여, 따라와라 심연 속으로!";
+  
+  L["msg_channel"]  = "대사 출력 채널";
+  L["SAY"] = "대화 (/s)";
+  L["YELL"]  = "외침 (/y)";
+  L["msg_playsound"] = "음성 재생";
+  L["true"] = "예";
+  L["false"] = "아니오";
 end
