@@ -19,12 +19,19 @@ function configFrame:OnEvent(event, arg1)
     end
   end
   L.channel = channel;
+  L.playchat = true;
   L.playsound = playsound;
 end
 configFrame:SetScript("OnEvent", configFrame.OnEvent);
 
 SLASH_IMCOMPLETE1 = "/imc";
 function SlashCmdList.IMCOMPLETE(msg)
+  if msg == "chaton" then
+    L.playchat = true;
+  end
+  if msg == "chatoff" then
+    L.playchat = false;
+  end
   if msg == "soundon" then
     L.playsound = true;
   end
